@@ -24,15 +24,24 @@ function main() {
 
 
         //Number 1
+<<<<<<< HEAD
         -0.35, 0.6,
         -0.2, 0.8,
         -0.1, 0.8,
         -0.1, -0.6,
+=======
+        -0.35, 0.4,
+        -0.35, 0.6,
+        -0.2, 0.8,
+        -0.1, 0.8,
+        -0.1, -0.6, //5
+>>>>>>> 6668a3c9bef7ab5d4fff70ba3a9d7b7dd551e234
         0.0, -0.6,
         0.0, -0.8,
         -0.2, -0.8,
         -0.35, -0.8,
         -0.35, -0.6,
+<<<<<<< HEAD
         -0.25, -0.6,
         -0.25, 0.4,
         -0.35, 0.4,
@@ -42,6 +51,68 @@ function main() {
         //LETTER I
 
 
+=======
+        -0.25, -0.6, //11
+        -0.25, 0.4,
+        -0.35, 0.4, //connect to start
+        -0.1, 0.4, //14
+        -0.25, 0.4,
+        -0.17, 0.8,
+        -0.1, 0.4,
+        -0.25, -0.6,
+        -0.25, 0.4,
+        -0.1, -0.6,
+        0.0, -0.6,
+        -0.35, -0.8,
+        -0.35, -0.6,
+        0.0, -0.8,
+
+
+
+
+        // Word I-1
+        0.10, 0.3,
+        0.10, 0.5,
+        0.10, 0.8,
+        0.25, 0.8,
+        0.25, 0.5,
+        0.25, 0.3,
+        0.177, -0.2,
+
+        // Word I-2
+        0.10, 0.2,
+        0.10, -0.8,
+        0.25, -0.8,
+        0.25, 0.2,
+
+
+        // Word D-1
+        0.3, 0.8, //A
+        0.3, -0.8,
+        0.45, 0.8,
+        0.31, -0.8, //D
+        0.46, 0.8,
+        0.46, -0.8,
+
+        //Word D-2
+        0.29, 0.8,
+        0.65, 0.8,
+        0.75, 0.7,
+        0.85, 0.3,
+        0.85, -0.3,
+        0.75, -0.7,
+        0.65, -0.8,
+        0.35, -0.8,
+
+        //Word D-3
+        0.53, 0.6,
+        0.63, 0.5,
+        0.7, 0.4,
+
+        0.7, -0.4,
+        0.63, -0.5,
+        0.53, -0.6,
+>>>>>>> 6668a3c9bef7ab5d4fff70ba3a9d7b7dd551e234
     ];
 
     // Create a link-list for storing the vertices data in the GPU realm
@@ -52,6 +123,7 @@ function main() {
     // VERTEX SHADER
     var vertexShaderCode = `
         attribute vec2 aPosition;
+<<<<<<< HEAD
         uniform float uTheta;
         void main () { 
             gl_PointSize = 5.0;
@@ -59,6 +131,11 @@ function main() {
             position.x = -sin(uTheta) * aPosition.x + cos(uTheta) * aPosition.y;
             position.y = sin(uTheta) * aPosition.y + cos(uTheta) * aPosition.x;
             gl_Position = vec4(position, 0.0, 1.0);
+=======
+        void main () { 
+            gl_PointSize = 5.0;
+            gl_Position = vec4(aPosition, 0.0, 1.0);
+>>>>>>> 6668a3c9bef7ab5d4fff70ba3a9d7b7dd551e234
             // gl_Position is the final destination for storing
             // positional data  for the rendered vertex
         }
@@ -95,15 +172,19 @@ function main() {
 
 
 
+<<<<<<< HEAD
     //local variables
     var theta = 0.0;
     //All the qualifiers needed by shaders
     var uTheta = gl.getUniformLocation(shaderProgram, "uTheta");
 
+=======
+>>>>>>> 6668a3c9bef7ab5d4fff70ba3a9d7b7dd551e234
     var aPosition = gl.getAttribLocation(shaderProgram, "aPosition")
     gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0)
     gl.enableVertexAttribArray(aPosition);
 
+<<<<<<< HEAD
     function render() {
         setTimeout(function () {
             gl.clearColor(0.5, 0.0, 0.0, 0.3); // change bg color
@@ -129,3 +210,18 @@ function main() {
 
 // gl.drawArrays(gl.LINE_LOOP, 14, 12);
    // gl.drawArrays(gl.POINT, 26, 10)
+=======
+    gl.clearColor(0.5, 0.0, 0.0, 0.3); // change bg color
+    //R, G, Blue, Alpha
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    gl.drawArrays(gl.LINE_LOOP, 0, 14);
+    gl.drawArrays(gl.LINE_STRIP, 14, 24);
+    gl.drawArrays(gl.TRIANGLE_FAN, 38, 7);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 45, 4);
+    gl.drawArrays(gl.TRIANGLES, 49, 6);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 55, 8);
+    gl.drawArrays(gl.TRIANGLE_FAN, 63, 6);
+
+}
+>>>>>>> 6668a3c9bef7ab5d4fff70ba3a9d7b7dd551e234
